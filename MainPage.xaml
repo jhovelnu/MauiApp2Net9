@@ -2,9 +2,10 @@
 <ContentPage
     x:Class="MauiApp2Net9.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    HideSoftInputOnTapped="True">
 
-    <ScrollView>
+    <ScrollView VerticalOptions="FillAndExpand">
         <VerticalStackLayout Padding="30,0" Spacing="25">
             <Image
                 Aspect="AspectFit"
@@ -32,6 +33,8 @@
 
             <Entry
                 Margin="5"
+                BackgroundColor="LightGray"
+                HeightRequest="50"
                 HorizontalOptions="FillAndExpand"
                 Placeholder="Test the keyboard" />
 
