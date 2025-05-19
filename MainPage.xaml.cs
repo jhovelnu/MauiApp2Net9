@@ -7,27 +7,14 @@
             InitializeComponent();
         }
 
-        private void uxButton1_Clicked(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
-            uxCollectionView.ItemsSource = null;
+            base.OnAppearing();
 
-            var items = new List<string>();
-            items.Add($"Item 0");
-
-            uxCollectionView.ItemsSource = items;
-        }
-
-        private void uxButton2_Clicked(object sender, EventArgs e)
-        {
-            uxCollectionView.ItemsSource = null;
-
-            var items = new List<string>();
-            for (int i = 0; i < 5; i++)
+            if (BindingContext is MainPageViewModel viewModel)
             {
-                items.Add($"Item {i}");
+                await viewModel.Init();
             }
-
-            uxCollectionView.ItemsSource = items;
         }
     }
 
