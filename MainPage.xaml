@@ -5,40 +5,61 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     HideSoftInputOnTapped="True">
 
-    <ScrollView VerticalOptions="FillAndExpand">
-        <VerticalStackLayout Padding="30,0" Spacing="25">
-            <Image
-                Aspect="AspectFit"
-                HeightRequest="185"
-                SemanticProperties.Description="dot net bot in a hovercraft number nine"
-                Source="dotnet_bot.png" />
+    <Grid
+        Padding="10"
+        ColumnDefinitions="*,*"
+        RowDefinitions="Auto,*">
+        <Button
+            x:Name="uxButton1"
+            Grid.Row="0"
+            Grid.Column="0"
+            Clicked="uxButton1_Clicked"
+            HorizontalOptions="Center"
+            Text="1 Item"
+            VerticalOptions="Center" />
 
-            <Label
-                SemanticProperties.HeadingLevel="Level1"
-                Style="{StaticResource Headline}"
-                Text="Hello, World!" />
+        <Button
+            x:Name="uxButton2"
+            Grid.Row="0"
+            Grid.Column="1"
+            Clicked="uxButton2_Clicked"
+            HorizontalOptions="Center"
+            Text="More Items"
+            VerticalOptions="Center" />
 
-            <Label
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                SemanticProperties.HeadingLevel="Level2"
-                Style="{StaticResource SubHeadline}"
-                Text="Welcome to &#10;.NET Multi-platform App UI" />
-
-            <Button
-                x:Name="CounterBtn"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Text="Click me" />
-
-            <Entry
-                Margin="5"
-                BackgroundColor="LightGray"
-                HeightRequest="50"
-                HorizontalOptions="FillAndExpand"
-                Placeholder="Test the keyboard" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+        <CollectionView
+            x:Name="uxCollectionView"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="10"
+            VerticalOptions="Fill">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout
+                    HorizontalItemSpacing="8"
+                    Orientation="Vertical"
+                    Span="3"
+                    VerticalItemSpacing="8" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        BackgroundColor="WhiteSmoke"
+                        HeightRequest="150"
+                        RowDefinitions="*,Auto">
+                        <Image
+                            Grid.Row="0"
+                            Aspect="AspectFill"
+                            Source="dotnet_bot.png" />
+                        <Label
+                            Grid.Row="1"
+                            HorizontalOptions="Center"
+                            Text="Test"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 
 </ContentPage>

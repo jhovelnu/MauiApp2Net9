@@ -2,23 +2,32 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void uxButton1_Clicked(object sender, EventArgs e)
         {
-            count++;
+            uxCollectionView.ItemsSource = null;
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+            var items = new List<string>();
+            items.Add($"Item 0");
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            uxCollectionView.ItemsSource = items;
+        }
+
+        private void uxButton2_Clicked(object sender, EventArgs e)
+        {
+            uxCollectionView.ItemsSource = null;
+
+            var items = new List<string>();
+            for (int i = 0; i < 5; i++)
+            {
+                items.Add($"Item {i}");
+            }
+
+            uxCollectionView.ItemsSource = items;
         }
     }
 
