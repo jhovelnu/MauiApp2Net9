@@ -31,7 +31,7 @@ namespace MauiApp2Net9
 
             Items = [];
 
-            await Task.Delay(2000);            
+            await Task.Delay(2000);
 
             for (int i = 0; i < 5; i++)
             {
@@ -53,30 +53,7 @@ namespace MauiApp2Net9
 
         public async Task Init()
         {
-            await LoadInitialCategories();
-
             await LoadInitialItems();
-        }
-
-        private async Task LoadInitialCategories()
-        {
-            IsBusy = true;
-
-            Categories = [];
-
-            await Task.Delay(2000);
-
-            for (int i = 0; i < 10; i++)
-            {
-                var item = new PlatformOption
-                {
-                    Name = $"item {i}"
-                };
-
-                Categories.Add(item);
-            }
-
-            IsBusy = false;
         }
 
         private async Task LoadInitialItems()
@@ -90,25 +67,10 @@ namespace MauiApp2Net9
             var item = new PlatformOption
             {
                 Name = "item1"
-            };            
+            };
             Items.Add(item);
 
             IsBusy = false;
-        }
-
-        private PlatformOptionCollection _categories = [];
-
-        public PlatformOptionCollection Categories
-        {
-            get => _categories;
-            set
-            {
-                if (_categories != value)
-                {
-                    _categories = value;
-                    OnPropertyChanged();
-                }
-            }
         }
 
         private PlatformOptionCollection _items = [];
